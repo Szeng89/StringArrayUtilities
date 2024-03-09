@@ -1,5 +1,10 @@
 package com.zipcodewilmington;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -25,7 +30,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        return array[array.length-1];
     }
 
     /**
@@ -33,7 +38,7 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        return array[array.length-2];
     }
 
     /**
@@ -42,7 +47,11 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-        return false;
+        //convert the String array to a single String and the contains method is applied to the string to check if it contains value
+        if(Arrays.toString(array).contains(value)){
+
+        }
+        return true;
     }
 
     /**
@@ -50,7 +59,8 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        Collections.reverse(Arrays.asList(array));
+        return array;
     }
 
     /**
@@ -58,7 +68,30 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+
+        // two different counters
+        int i = 0;
+        int j = array.length -1;
+
+
+        boolean exit = true;
+
+        //
+        while (i < array.length){
+            if(array[i].equals(array[j])){
+                exit = true;
+            }else{
+                exit = false;
+                break;
+            }
+            i++;
+            j--;
+        }
+
+        return exit;
+
+
+
     }
 
     /**
