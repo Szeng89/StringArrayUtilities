@@ -74,21 +74,20 @@ public class StringArrayUtils {
         int j = array.length -1;
 
 
-        boolean exit = true;
 
-        //
+
         while (i < array.length){
+
+            // if interate at i is equal to j
             if(array[i].equals(array[j])){
-                exit = true;
+                i++;
+                j--;
             }else{
-                exit = false;
-                break;
+                return false;
             }
-            i++;
-            j--;
         }
 
-        return exit;
+        return true;
 
 
 
