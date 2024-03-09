@@ -73,10 +73,7 @@ public class StringArrayUtils {
         int i = 0;
         int j = array.length -1;
 
-
-
-
-        while (i < array.length){
+        while (i < array.length-1){
 
             // if interate at i is equal to j
             if(array[i].equals(array[j])){
@@ -86,11 +83,7 @@ public class StringArrayUtils {
                 return false;
             }
         }
-
         return true;
-
-
-
     }
 
     /**
@@ -98,7 +91,24 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+
+        char[] alphaArray = alpha.toCharArray();
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String strOfArray : array){
+            stringBuilder.append(strOfArray.toLowerCase());
+        }
+
+        String newConcatString = stringBuilder.toString();
+
+        for (char character : alphaArray){
+            if(!newConcatString.contains(String.valueOf(character))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
