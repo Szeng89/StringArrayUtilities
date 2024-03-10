@@ -57,8 +57,21 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        Collections.reverse(Arrays.asList(array));
-        return array;
+//        Collections.reverse(Arrays.asList(array));
+//        return array;
+
+        // make array list
+        ArrayList<String> reverseArrayList = new ArrayList<>();
+
+        // start iterating through the end of the array list
+        for (int i = array.length-1; i >= 0; i--) {
+
+            // add subzero i to array list
+            reverseArrayList.add(array[i]);
+        }
+        return  reverseArrayList.toArray(new String[0]);
+
+
     }
 
     /**
@@ -157,7 +170,7 @@ public class StringArrayUtils {
             if(!i.equals(valueToRemove)){
 
                 // Add i to current index of new array if its not the same
-                newArray[currentIndex] += i;
+                newArray[currentIndex] = i;
 
                 //
                 currentIndex++;
@@ -196,7 +209,27 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        return null;
+        // make stringbuild obj
+        StringBuilder stringb = new StringBuilder();
+
+        // iterate through array
+        for (int i = 0; i < array.length; i++){
+
+            // append each element of array to stringb
+            stringb.append(array[i]);
+        }
+        // iterate through stringb
+        for (int j = 1; j < stringb.length(); j++) {
+
+            // check if the current char is different then the previous
+            if (stringb.charAt(j-1) != (stringb.charAt(j))) {
+
+                // insert comma at the current position
+                stringb.insert(j, ",");
+                j++;
+            }
+        }
+        return stringb.toString().split(",");
     }
 
 
