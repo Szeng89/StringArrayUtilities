@@ -91,20 +91,31 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
+
+        // Define a string containing all the lowercase letters of the alphabet
         String alpha = "abcdefghijklmnopqrstuvwxyz";
 
+        // Convert the alpha string into a char array and assign it to alphaArray
         char[] alphaArray = alpha.toCharArray();
 
+
+        // Make Stringbuilder object
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (String strOfArray : array){
-            stringBuilder.append(strOfArray.toLowerCase());
+
+        // Loop through each index of array to append to lowercase
+        for (String i : array){
+            stringBuilder.append(i.toLowerCase());
         }
 
-        String newConcatString = stringBuilder.toString();
+        // Assign Stringbuilder instance to new var
+        String newConcatedString = stringBuilder.toString();
 
+        // Loop though each char of created alphabet array
         for (char character : alphaArray){
-            if(!newConcatString.contains(String.valueOf(character))) {
+
+            // if concated string does not contain each character of alphaArray return false
+            if(!newConcatedString.contains(String.valueOf(character))) {
                 return false;
             }
         }
