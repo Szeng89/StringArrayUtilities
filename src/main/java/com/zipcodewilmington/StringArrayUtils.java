@@ -128,7 +128,16 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int valueCounter = 0;
+
+        for (String word : array) {
+
+            //check if current element is the same as given string if it is increase the counter
+            if (word.equals(value)){
+                valueCounter++;
+            }
+        }
+        return valueCounter;
     }
 
     /**
