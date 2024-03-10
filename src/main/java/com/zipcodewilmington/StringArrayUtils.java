@@ -1,9 +1,7 @@
 package com.zipcodewilmington;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 /**
  * Created by leon on 1/29/18.
@@ -145,8 +143,27 @@ public class StringArrayUtils {
      * @param valueToRemove value to remove from array
      * @return array with identical contents excluding values of `value`
      */ // TODO
-    public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+    public static String[] removeValue(String[] array, String valueToRemove){
+        // Make new array and size it to given array -1 since were only removing 1 value from it
+        String[] newArray = new String[array.length-1];
+
+        // Have a counter for index were currently on
+        int currentIndex =0;
+
+        // Interate through the given array
+        for(String i : array){
+
+            // See if element matches given value "im checking if its not the same"
+            if(!i.equals(valueToRemove)){
+
+                // Add i to current index of new array if its not the same
+                newArray[currentIndex] += i;
+
+                //
+                currentIndex++;
+            }
+        }
+        return newArray;
     }
 
     /**
@@ -154,7 +171,24 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        // Create a new array list
+          List<String> noConsecDupes = new ArrayList<>();
+
+          // Store the first element of array into the new array list
+          noConsecDupes.add(array[0]);
+
+          // Iterate throught the array starting at the second index because we already added the first element
+          for (int i = 1; i < array.length; i ++){
+
+              // Check to see if the i is different than i-1
+              if(!array[i - 1].equals(array[i])){
+
+                  // Store i if it different
+                  noConsecDupes.add(array[i]);
+              }
+          }
+          // Change list back to array and return
+          return noConsecDupes.toArray(new String[0]);
     }
 
     /**
